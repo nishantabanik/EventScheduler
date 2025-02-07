@@ -18,4 +18,4 @@ Key Features:
 
     LocalStorage Integration: Store and retrieve the API key using localStorage for persistent access.
 
-This project provides hands-on experience in building interactive web applications with React, focusing on real-world data handling and user authentication. By the end of this project, you’ll have a solid understanding of integrating React with RESTful APIs, managing user sessions, and creating dynamic, data-driven applications.
+This project provides hands-on experience in building interactive web applications with React, focusing on real-world data handling and user authentication. By the end of this project, you’ll have a solid understanding of integrating React with RESTful APIs, managing user sessions, & creating dynamic, data-driven applications.

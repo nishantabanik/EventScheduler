@@ -11,7 +11,7 @@ const Header = () => {
         <img
           src={logo}
           alt="Logo"
-          className="bg-[#ffd60a]  h-[7rem] ml-[7rem]"
+          className="bg-[#ffd60a]  h-[7rem] ml-[7rem] border-2 border-[#000814]"
         />
       </a>
 

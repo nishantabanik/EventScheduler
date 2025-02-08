@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignOut from "./pages/SignOut";
 import NotFound from "./pages/NotFound";
-
+import Contact from "./pages/Contact";
 function App() {
   return (
     <>
@@ -14,6 +14,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signout" element={<SignOut />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

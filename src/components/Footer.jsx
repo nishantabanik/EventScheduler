@@ -1,5 +1,6 @@
 import logo from "../images/banana.png";
 import united from "../images/united.png";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -28,9 +29,11 @@ const Footer = () => {
           </div>
 
           <div className=" w-full flex justify-end items-center mr-10">
-            <button className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl">
-              Contact
-            </button>
+            <Link to="/contact">
+              <button className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl">
+                Contact
+              </button>
+            </Link>
           </div>
         </div>
         <div className="bg-[#FFD50A] h-[5rem] flex flex-row justify-between">

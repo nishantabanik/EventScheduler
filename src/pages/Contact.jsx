@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Contact = () => {
   const handleClick = () => {
     const name = document.getElementById("name").value;
@@ -63,6 +65,16 @@ const Contact = () => {
             >
               Send
             </button>
+          </div>
+          <div className="mt-2">
+            <Link to="/home" className="text-primary hover:underline">
+              <button
+                type="submit"
+                className="text-[#ffd60a] bg-[#003566]  text-2xl px-12 rounded-xl hover:text-3xl"
+              >
+                Go Home
+              </button>
+            </Link>
           </div>
         </form>
       </section>

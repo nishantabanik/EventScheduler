@@ -11,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signout" element={<SignOut />} />
         </Route>

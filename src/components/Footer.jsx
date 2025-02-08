@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <>
-      <p>Footer</p>
+      <p className="text-6xl text-[#000814]">Footer</p>
     </>
   );
 };

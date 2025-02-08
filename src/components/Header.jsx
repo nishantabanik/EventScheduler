@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <>
-      <p>Header</p>
+      <p className="text-6xl text-[#000814]">Header</p>
     </>
   );
 };

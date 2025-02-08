@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-slate-600 text-gray-300 flex flex-col min-h-screen">
+    <div className="bg-[#FFD60A] text-gray-300 flex flex-col min-h-screen">
       <Header />
       <Footer />
     </div>

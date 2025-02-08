@@ -1,7 +1,10 @@
+import Footer from "../components/Footer";
+
 const SignUp = () => {
   return (
     <>
-      <p>SignUp</p>
+      <Footer />
+      <Footer />
     </>
   );
 };

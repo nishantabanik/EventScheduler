@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 
-const SignUp = () => {
+const SignOut = () => {
   return (
     <>
       <Footer />
@@ -9,4 +9,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignOut;

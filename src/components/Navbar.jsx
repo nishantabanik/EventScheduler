@@ -1,4 +1,5 @@
 import logo from "../images/banana.png";
+import NewEntryModal from "./NewEntryModal";
 
 const Navbar = () => {
   function handleClick() {
@@ -14,7 +15,6 @@ const Navbar = () => {
           className="bg-[#ffd60a]  h-[7rem] ml-[7rem] border-2 border-[#000814]"
         />
       </a>
-
       <div className=" w-full flex justify-end items-center mr-10">
         <button
           className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl"

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import NewEntryModal from '../components/NewEntryModal';
 
 const Home = () => {
   const [events, setEvents] = useState([]); // State to store events
@@ -53,6 +54,7 @@ const Home = () => {
       ) : (
         <p>No events found.</p>
       )}
+    <NewEntryModal />
     </div>
   );
 };

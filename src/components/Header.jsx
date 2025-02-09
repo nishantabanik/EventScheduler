@@ -13,8 +13,8 @@ const Header = () => {
             <div className="hero-overlay bg-opacity-40"></div>
                 <div className="hero-content text-neutral-content text-center">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl text-white font-bold">Hello there</h1>
-                        <p className="mb-5 text-white text-2xl">
+                        <h1 className="mb-5 text-5xl text-white font-bold">Hello Banana Fam</h1>
+                        <p className="mb-5 text-white text-2xl font-thin">
                             Whether you're peeling or standing - with us you'll slide straight into the next big event!
                         </p>
                         <input

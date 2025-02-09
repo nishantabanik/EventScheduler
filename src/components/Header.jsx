@@ -1,30 +1,30 @@
-import logo from "../images/banana.png";
+import banner from "../images/banner.png"
 
 const Header = () => {
-  function handleClick() {
-    console.log("clicked");
-  }
 
-  return (
-    <header className="flex bg-[#000814] w-full h-[7rem]">
-      <a className="w-22 md:w-38 hover:scale-105 transition-all ">
-        <img
-          src={logo}
-          alt="Logo"
-          className="bg-[#ffd60a]  h-[7rem] ml-[7rem] border-2 border-[#000814]"
-        />
-      </a>
-
-      <div className=" w-full flex justify-end items-center mr-10">
-        <button
-          className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl"
-          onClick={handleClick}
-        >
-          Sign in
-        </button>
-      </div>
-    </header>
-  );
+    return(
+        <div
+            className="hero h-[600px] border-t-2 border-b-2 border-white"
+            style={{
+                backgroundImage: `url(${banner})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+            }}>
+            <div className="hero-overlay bg-opacity-40"></div>
+                <div className="hero-content text-neutral-content text-center">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl text-white font-bold">Hello there</h1>
+                        <p className="mb-5 text-white text-2xl">
+                            Whether you're peeling or standing - with us you'll slide straight into the next big event!
+                        </p>
+                        <input
+                            type="text"
+                            placeholder="Search for events"
+                            className="input input-bordered input-warning w-full max-w-xs" />
+                    </div>
+            </div>
+        </div>
+    )
 };
 
 export default Header;

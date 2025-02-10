@@ -1,12 +1,28 @@
-import imgEvents from "../images/banana-events.jpg";
+import { useState, useEffect } from "react";
+import { imgArray } from "../data/imgEvents.js";
+
 const RightSide = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imgArray.length);
+    }, 4000); // Change image every 4 seconds
+
+    return () => clearInterval(interval); // Clean up the interval when component unmounts
+  }, []);
+
   return (
     <>
-      {/* right side */}
+      {/* Right side */}
       <div>
-        <img src={imgEvents} alt="Banana Event" className="rounded-full h-[25rem]" />
+        <img
+          id="imageContact"
+          src={imgArray[currentImageIndex].images}
+          alt="Event"
+          className="rounded-full h-[25rem]"
+        />
       </div>
-      {/* end of right side */}
     </>
   );
 };

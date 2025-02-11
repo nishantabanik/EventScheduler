@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-[#FFD60A] text-gray-300 flex flex-col min-h-screen">
+    <div className="bg-[#001D3D] text-gray-300 flex flex-col min-h-screen">
       <Navbar />
       <main className=" py-4">
         <Outlet />

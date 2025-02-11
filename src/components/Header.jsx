@@ -4,7 +4,7 @@ const Header = () => {
 
     return(
         <div
-            className="hero h-[600px] border-t-2 border-b-2 border-white"
+            className="hero h-[600px] border-t border-b -mt-5"
             style={{
                 backgroundImage: `url(${banner})`,
                 backgroundSize: "cover",
@@ -20,7 +20,7 @@ const Header = () => {
                         <input
                             type="text"
                             placeholder="Search for events"
-                            className="input input-bordered input-warning w-full max-w-xs" />
+                            className="input input-bordered input-lg input-warning w-full max-w-xs mt-2" />
                     </div>
             </div>
         </div>

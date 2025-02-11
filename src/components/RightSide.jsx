@@ -15,7 +15,7 @@ const RightSide = () => {
   return (
     <>
       {/* Right side */}
-      <div>
+      <div className="hidden lg:flex">
         <img
           id="imageContact"
           src={imgArray[currentImageIndex].images}

@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router";
 import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
+import SignUp from "./pages/Signup";
 import SignIn from "./pages/SignIn";
 import SignOut from "./pages/SignOut";
 import NotFound from "./pages/NotFound";
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
+          <Route path="signup" element={<SignUp />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signout" element={<SignOut />} />
           <Route path="contact" element={<Contact />} />

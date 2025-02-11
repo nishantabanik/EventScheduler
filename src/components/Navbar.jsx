@@ -1,10 +1,8 @@
+import { useNavigate } from "react-router";
 import logo from "../images/banana.png";
-import NewEntryModal from "./NewEntryModal";
 
 const Navbar = () => {
-  function handleClick() {
-    console.log("clicked");
-  }
+  const navigate = useNavigate(); // For navigating to different pages
 
   return (
     <header className="flex bg-[#000814] w-full h-[7rem]">
@@ -15,12 +13,20 @@ const Navbar = () => {
           className="bg-[#ffd60a]  h-[7rem] ml-[7rem] border-2 border-[#000814]"
         />
       </a>
-      <div className=" w-full flex justify-end items-center mr-10">
+
+      <div className="w-full flex justify-end items-center mr-10 space-x-4">
         <button
           className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl"
-          onClick={handleClick}
+          onClick={() => navigate("/signup")}
         >
-          Sign in
+          Sign Up
+        </button>
+
+        <button
+          className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl"
+          onClick={() => navigate("/signin")}
+        >
+          Sign In
         </button>
       </div>
     </header>

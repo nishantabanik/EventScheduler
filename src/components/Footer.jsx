@@ -5,30 +5,31 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <>
-      <footer className="w-full h-[12rem]">
-        <div className="bg-[#000814] h-[7rem] flex flex-row ">
+      <footer className="w-full  xl:h-[12rem]">
+        <div className="lg:flex lg:flex-col bg-[#000814] xl:h-[7rem] xl:flex xl:flex-row ">
           <a className="w-22 md:w-38 ">
             <img
               src={logo}
               alt="Logo"
-              className="bg-[#ffd60a]  h-[7rem] ml-[7rem] border-2 border-[#000814] "
+              className="bg-[#ffd60a] h-[6rem] m-[auto]  xl:h-[7rem] xl:ml-[7rem] border-2 border-[#000814] "
             />
           </a>
-          <div className="flex text-[#ffd60a] flex-col text-sm justify-center items-start  ml-[14rem] w-[22rem]">
-            <h5>Berlin</h5>
-            <h5>Weiskopffstraße 16</h5>
-            <h5>12459 Berlin</h5>
-            <h5>berlin@banana.de</h5>
-          </div>
+          <div className=" flex flex-row justify-evenly xl:justify-center ">
+            <div className="xl:flex text-[#ffd60a] xl:flex-col text-sm xl:justify-center xl:items-start  xl:ml-[14rem] xl:w-[22rem]">
+              <h5>Berlin</h5>
+              <h5>Weiskopffstraße 16</h5>
+              <h5>12459 Berlin</h5>
+              <h5>berlin@banana.de</h5>
+            </div>
 
-          <div className="flex text-[#ffd60a] flex-col text-sm justify-center items-start  ml-[7rem] w-[22rem]">
-            <h5>Hannover</h5>
-            <h5>Kurt-Scwitters-Platz 1</h5>
-            <h5>30169 Hannover</h5>
-            <h5>hannover@banana.de</h5>
+            <div className="xl:flex text-[#ffd60a] xl:flex-col text-sm xl:justify-center xl:items-start   xl:w-[22rem]">
+              <h5>Hannover</h5>
+              <h5>Kurt-Scwitters-Platz 1</h5>
+              <h5>30169 Hannover</h5>
+              <h5>hannover@banana.de</h5>
+            </div>
           </div>
-
-          <div className=" w-full flex justify-end items-center mr-10">
+          <div className="md:w-full flex justify-center lg:pb-3 md:mb-5 pb-5 xl:pb-0 xl:justify-start xl:items-center ">
             <Link to="/contact">
               <button className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl">
                 Contact
@@ -36,12 +37,16 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="bg-[#FFD50A] h-[5rem] flex flex-row justify-between">
-          <div className="ml-[7rem] pt-12">
-            <p className="text-[#000814] ">Your digital creative from Berlin</p>
+
+        {/* right side */}
+        <div className="bg-[#FFD50A]  m-[auto] sm:ml-0 sm:h-[5rem] sm:flex sm:flex-row sm:justify-between">
+          <div className="  ml-[7rem]  items-center sm:pt-12">
+            <p className=" sm:text-xl md:text-sm text-[#000814] ">
+              Your digital creative from Berlin
+            </p>
           </div>
 
-          <div className="flex flex-row items-center h-[5rem]  ">
+          <div className="flex sm:flex-row  sm:h-[5rem] justify-center   ">
             <div className="mr-3">
               {/* linkedin */}
               <svg
@@ -128,11 +133,12 @@ const Footer = () => {
               <img
                 src={united}
                 alt="united"
-                className=" mr-3 h-[5rem]  border-[#FFD50A] border-1 "
+                className=" sm:mr-3 h-[5rem] sm:block border-[#FFD50A] sm:border-1  hidden"
               />
             </div>
           </div>
         </div>
+        {/* end of right side */}
       </footer>
     </>
   );

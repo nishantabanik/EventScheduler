@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useState } from "react";
+import axios from "axios";
 
 const NewEntryModal = ({ onEventCreated }) => {
     const [formData, setFormData] = useState({
         title: "",
         location: "",
         date: "",
-        time: "",
-        image: "",
         description: "",
     });
 
@@ -17,7 +15,13 @@ const NewEntryModal = ({ onEventCreated }) => {
     // Error handling
     const [error, setError] = useState(null);
 
-    // POST request to create a new event
+    // Get Auth Token from local storage
+    const getAuthToken = () => localStorage.getItem("authToken");
+
+    // Date formatting for further processing
+    const formattedDate = formData.date;
+
+    // POST request to create a new event incl. auth token
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
@@ -26,30 +30,46 @@ const NewEntryModal = ({ onEventCreated }) => {
         const newEvent = {
             title: formData.title,
             location: formData.location,
-            date: `${formData.date}T${formData.time}:00Z`,
-            image: formData.image,
+            date: formattedDate,
             description: formData.description,
         };
 
-        try {
-            const response = await fetch("http://localhost:3001/api/events", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(newEvent),
-            });
+        // 🚀 Debugging: Logging JSON Payload 
+        console.log("📡 JSON Payload:", JSON.stringify(newEvent, null, 2));
 
-            if (!response.ok) {
-                throw new Error(`HTTP Error! Status: ${response.status}`);
+
+        // 🚀 Debugging: Logging new event
+        console.log("📡 Send new event:", newEvent);
+        console.log("📆 Send Date:", `${formData.date}T${formData.time}:00Z`);
+
+        try {
+            // get auth token from local storage
+            const authToken = getAuthToken();
+
+            if(!authToken) {
+                throw new Error ("No auth token found, please log in.");
             }
 
-            const createdEvent = await response.json();
-            console.log("Event successfully created:", createdEvent);
+            // 🚀 Debugging: Logging token
+            console.log("🔑 Auth-Token:", authToken);
+
+            const response = await axios.post(
+                "http://localhost:3001/api/events",
+                newEvent,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${authToken}`, // Send Token as Bearer-Token
+                    },
+                }
+            );
+
+            console.log("Event successfully created:", response.data);
+
 
             // If "onEventCreated" is passed as prop, update event list
             if (onEventCreated) {
-                onEventCreated(createdEvent);
+                onEventCreated(response.data);
             }
 
             // Close modal
@@ -66,8 +86,16 @@ const NewEntryModal = ({ onEventCreated }) => {
             });
 
         } catch (error) {
-            console.error("Error during event creation:", error);
-            setError(error.message);
+            console.error("🚨 Fehler beim Erstellen des Events:", error.response?.data || error.message);
+            
+            // 🚀 Debugging: Display detailed API-error
+            if (error.response) {
+                console.log("🔴 API Status:", error.response.status);
+                console.log("📄 API Response Data:", JSON.stringify(error.response.data, null, 2));
+                console.log("📄 API Headers:", JSON.stringify(error.response.headers, null, 2));
+            }
+            
+            setError(error.response?.data?.message || error.message);
         } finally {
             setLoading(false);
         }
@@ -174,6 +202,40 @@ const NewEntryModal = ({ onEventCreated }) => {
                                 type="submit"
                                 className="btn btn-outline btn-warning"
                                 disabled={loading}
+                        </div>
+                    </div>
+
+                    {/* Event Description */}
+                    <div className="flex flex-col">
+                        <span className="label-text text-white mt-2">Event Details</span>
+                        <textarea 
+                            className="textarea textarea-bordered w-full my-1" 
+                            placeholder="Provide an event description"
+                            value={formData.description}
+                            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                            required
+                        />
+                    </div>
+
+                    {/* Display error */}
+                    {error && <p className="text-red-400 text-sm mt-2">⚠️ {error}</p>}
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-4 mt-2 justify-end">
+                        {/* Submit-Button including Loading-Status */}
+                        <button 
+                            type="submit" 
+                            className="btn btn-outline btn-warning" 
+                            disabled={loading}
+                        >
+                            {loading ? "Creating..." : "Create"}
+                        </button>
+
+                        {/* Cancel-Button to close Modal */}
+                        <button 
+                            type="button" 
+                            className="btn btn-outline"
+                            onClick={() => document.getElementById("my_modal_3").close()} 
                             >
                                 {loading ? "Creating..." : "Create"}
                             </button>

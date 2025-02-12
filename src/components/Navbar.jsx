@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import logo from "../images/banana.png";
 import { useEffect, useState } from "react";
+import ThemeToggle from "./ThemeToggle"; // Import the toggle button
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const Navbar = () => {
             </button>
           </>
         )}
+        <ThemeToggle />
       </div>
     </header>
   );

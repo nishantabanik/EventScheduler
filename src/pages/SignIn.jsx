@@ -17,11 +17,17 @@ const SignIn = () => {
         password,
       });
 
-      // Save the auth token in localStorage after successful login
+      console.log("Login Response:", response.data); // Debugging
+
+      // Save auth token and username in localStorage
       localStorage.setItem("authToken", response.data.token);
 
-      // Redirect to Home page after successful login
-      navigate("/");
+      // ✅ Fix: Adjust this based on the API response structure
+      const username = response.data.user?.username || response.data.user?.name || response.data.user?.email;
+      localStorage.setItem("username", username);
+
+      navigate("/"); // Redirect to Home page after successful login
+      window.location.reload(); // Reload to trigger Navbar updates
     } catch (err) {
       console.error("Login failed:", err);
       setError("Invalid credentials. Please try again.");
@@ -30,10 +36,12 @@ const SignIn = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-[60vh] bg-[#000814] text-white">
-
       {error && <p className="text-red-500">{error}</p>}
 
-      <form onSubmit={handleSignIn} className="bg-[#ffd60a] p-8 rounded-lg shadow-lg w-96 text-black space-y-4 border-4 border-black">
+      <form
+        onSubmit={handleSignIn}
+        className="bg-[#ffd60a] p-8 rounded-lg shadow-lg w-96 text-black space-y-4 border-4 border-black"
+      >
         <h2 className="text-3xl font-bold text-center text-[#050505]">Sign In</h2>
         <div className="mb-4">
           <input
@@ -67,6 +75,5 @@ const SignIn = () => {
     </div>
   );
 };
-
 
 export default SignIn;

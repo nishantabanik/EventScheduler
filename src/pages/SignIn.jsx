@@ -21,7 +21,7 @@ const SignIn = () => {
       localStorage.setItem("authToken", response.data.token);
 
       // Redirect to Home page after successful login
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.error("Login failed:", err);
       setError("Invalid credentials. Please try again.");

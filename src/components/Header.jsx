@@ -1,38 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import banner from "../images/banner.png";
 
 const Header = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [loading, setLoading] = useState(false);
 
-    // Fetch Events from API based on search
-    useEffect(() => {
-        const fetchEvents = async () => {
-            if (searchTerm.length < 3) {
-                onSearch(null); // Reset events, when search field is empty
-                return;
-            }
-
-            setLoading(true);
-            try {
-                const response = await fetch(`http://localhost:3001/api/events?search=${searchTerm}`);
-                if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
-                
-                const data = await response.json();
-                console.log("🔎 API Search Results:", data.results);
-
-                onSearch(data.results || []);
-            } catch (error) {
-                console.error("Error fetching search results:", error);
-                onSearch([]); // Display empty list when error occurs
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        const debounceSearch = setTimeout(fetchEvents, 500); // 500ms delay for better performace
-        return () => clearTimeout(debounceSearch); // Cleanup for debounce
-    }, [searchTerm, onSearch]);
+    // Debounce for better performance (delays search by 300ms)
+    const handleSearchChange = (e) => {
+        const term = e.target.value;
+        setSearchTerm(term);
+        setTimeout(() => {
+            onSearch(term);
+        }, 300); 
+    };
 
     return (
         <div
@@ -54,9 +33,8 @@ const Header = ({ onSearch }) => {
                         placeholder="Search for events"
                         className="input input-bordered input-lg input-warning w-full max-w-xs mt-2"
                         value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
+                        onChange={handleSearchChange}
                     />
-                    {loading && <p className="text-yellow-400 mt-2">Loading events...</p>}
                 </div>
             </div>
         </div>

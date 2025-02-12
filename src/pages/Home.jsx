@@ -5,22 +5,33 @@ import Header from '../components/Header.jsx';
 
 const Home = () => {
     const [events, setEvents] = useState([]); 
+    const [originalEvents, setOriginalEvents] = useState([]); // Save initial events in state
   
-    // Fetch Events from API
+    // Fetch Events from API (initial load)
     useEffect(() => {
       const fetchEvents = async () => {
-        try {
-          const response = await fetch("http://localhost:3001/api/events?page=1&limit=10");
-          if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
-          const data = await response.json();
-          console.log("📡 Events loaded:", data.results);
-          setEvents(data.results || []);
-        } catch (error) {
-          console.error("Error when loading events:", error);
-        }
+          try {
+              const response = await fetch("http://localhost:3001/api/events?page=1&limit=10");
+              if (!response.ok) throw new Error(`HTTP Error! Status: ${response.status}`);
+              const data = await response.json();
+              console.log("📡 Events loaded:", data.results);
+              setEvents(data.results || []);
+              setOriginalEvents(data.results || []); // save initial list of events
+          } catch (error) {
+              console.error("Error when loading events:", error);
+          }
       };
       fetchEvents();
-    }, []);
+  }, []);
+
+      // Update Event-List based on search
+      const handleSearchResults = (filteredEvents) => {
+        if (filteredEvents === null) {
+            setEvents(originalEvents); // Falls Suchfeld leer ist, lade Original-Events
+        } else {
+            setEvents(filteredEvents);
+        }
+    };
   
     // Add new events to event list
     const handleEventCreated = (newEvent) => {
@@ -29,7 +40,7 @@ const Home = () => {
 
   return (
     <section id='events' className='flex flex-col items-center justify-center'>
-    <Header />
+    <Header onSearch={handleSearchResults} />
       <div className="flex flex-col items-center p-8 mb-6">
         <h1 className="text-4xl font-black text-white my-12">🍌 Upcoming Banana Events 🍌</h1>
         <p className='mb-16 font-thin lg:mx-64 md:mx-48 sm:mx-32 mx-16'>

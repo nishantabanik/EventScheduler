@@ -9,7 +9,7 @@ const NotFound = () => {
       <img className="w-full h-[30rem] object-contain" src={notFoundImage} />
 
       <button
-        className="text-[#000814] bg-[#ffd60a] p-8 rounded-full"
+        className="btn btn-outline btn-warning mt-3 text-accent rounded-full"
         onClick={handleGoBack}
       >
         Return to banana pages

@@ -90,7 +90,7 @@ const LeftSide = () => {
       <div className="">
         <button
           type="submit"
-          className="text-[#ffd60a] bg-[#003566]  text-lg hover:text-xl ml-[42%] lg:ml-[0] lg:text-2xl px-12 rounded-xl lg:hover:text-3xl"
+          className="btn btn-outline btn-warning text-accent text-lg hover:text-xl ml-[42%] lg:ml-[0] lg:text-2xl px-12 rounded-xl lg:hover:text-3xl"
         >
           Send
         </button>
@@ -99,7 +99,7 @@ const LeftSide = () => {
         <Link to="/home" className="text-primary hover:underline">
           <button
             type="submit"
-            className="text-[#ffd60a] bg-[#003566]  text-lg hover:text-xl ml-[42%] lg:ml-[0] lg:text-2xl px-12 rounded-xl lg:hover:text-3xl"
+            className="btn btn-outline btn-warning text-accent  text-lg hover:text-xl ml-[42%] lg:ml-[0] lg:text-2xl px-12 rounded-xl lg:hover:text-3xl"
           >
             Go Home
           </button>

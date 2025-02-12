@@ -4,7 +4,7 @@ const Header = () => {
 
     return(
         <div
-            className="hero h-[600px] border-t border-b -mt-5"
+            className="hero h-[600px] border-t border-b -mt-4"
             style={{
                 backgroundImage: `url(${banner})`,
                 backgroundSize: "cover",

@@ -16,14 +16,14 @@ const Navbar = () => {
 
       <div className="w-full flex justify-end items-center mr-10 space-x-4">
         <button
-          className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
+          className="font-serif  btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
           onClick={() => navigate("/signup")}
         >
           Sign Up
         </button>
 
         <button
-          className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
+          className="font-serif  btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
           onClick={() => navigate("/signin")}
         >
           Sign In

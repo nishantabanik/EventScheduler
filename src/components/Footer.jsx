@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className="md:w-full flex justify-center lg:pb-3 md:mb-5 pb-5 xl:pb-0 xl:justify-start xl:items-center ">
             <Link to="/contact">
-              <button className="bg-[#ffd60a] text-[#000814] text-2xl px-12 rounded-xl hover:text-3xl">
+              <button className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl">
                 Contact
               </button>
             </Link>

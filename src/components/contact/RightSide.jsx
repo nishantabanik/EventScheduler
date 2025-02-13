@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { imgArray } from "../data/imgEvents.js";
+import { imgArray } from "../../data/imgEvents";
 
 const RightSide = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

@@ -1,4 +1,4 @@
-import logo from "../images/banana.png"; //import logo
+import logo from "../../images/banana.png"; //import logo
 const Logo = () => {
   return (
     <a className="w-22 md:w-38 ">

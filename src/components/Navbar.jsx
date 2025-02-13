@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import logo from "../images/banana.png";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle"; // Import the toggle button
@@ -27,13 +27,13 @@ const Navbar = () => {
 
   return (
     <header className="flex bg-[#000814] w-full h-[7rem]">
-      <a className="w-22 md:w-38 shadow-xl transform transition-transform duration-300 hover:scale-110">
+      <Link to="/" className="w-22 md:w-38 shadow-xl transform transition-transform duration-300 hover:scale-110">
         <img
           src={logo}
           alt="Logo"
           className="bg-[#ffd60a] h-[7rem] ml-[7rem] border-2 border-[#000814]"
         />
-      </a>
+      </Link>
 
       <div className="w-full flex justify-end items-center mr-10 space-x-4">
         {username ? (

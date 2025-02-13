@@ -1,6 +1,8 @@
+// src/components/ThemeToggle.jsx
 import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
+    const themes = ["light", "dark", "bumblebee", "luxury", "cyberpunk"];
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
     useEffect(() => {
@@ -8,13 +10,22 @@ const ThemeToggle = () => {
         localStorage.setItem("theme", theme);
     }, [theme]);
 
+    const handleThemeChange = (event) => {
+        setTheme(event.target.value);
+    };
+
     return (
-        <button
-            className="btn btn-sm btn-outline btn-warning"
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        <select
+            className="select select-bordered select-sm w-full max-w-xs"
+            value={theme}
+            onChange={handleThemeChange}
         >
-            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
-        </button>
+            {themes.map((t) => (
+                <option key={t} value={t}>
+                    {t.charAt(0).toUpperCase() + t.slice(1)}
+                </option>
+            ))}
+        </select>
     );
 };
 

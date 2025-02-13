@@ -2,29 +2,37 @@ import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 
 const EventDetails = () => {
-    const { id } = useParams(); // Get event ID from URL
+    const { id } = useParams();
     const navigate = useNavigate();
-    const [event, setEvent] = useState(null); // Store event details
+    const [event, setEvent] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch event details from API
-    const fetchEventDetails = async () => {
-        try {
-            const response = await fetch(`http://localhost:3001/api/events/${id}`);
-            if (!response.ok) throw new Error('Failed to fetch event details.');
-            const data = await response.json();
-            setEvent(data);
-        } catch (error) {
-            setError(error.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     useEffect(() => {
+        // Check if the user is logged in
+        const authToken = localStorage.getItem("authToken");
+
+        if (!authToken) {
+            alert("You should Login to our Banana Club");
+            navigate("/signin");
+            return;
+        }
+
+        const fetchEventDetails = async () => {
+            try {
+                const response = await fetch(`http://localhost:3001/api/events/${id}`);
+                if (!response.ok) throw new Error('Failed to fetch event details.');
+                const data = await response.json();
+                setEvent(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchEventDetails();
-    }, [id]);
+    }, [id, navigate]);
 
     if (loading) return <p>Loading event details...</p>;
     if (error) return <p className="text-red-500">{error}</p>;

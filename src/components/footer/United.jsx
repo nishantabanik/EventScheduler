@@ -1,4 +1,4 @@
-import united from "../images/united.png"; //import image
+import united from "../../images/united.png"; //import image
 
 const United = () => {
   return (

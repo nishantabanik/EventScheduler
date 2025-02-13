@@ -1,12 +1,12 @@
-import Logo from "./Logo"; //import Logo
-import Address from "./Address"; //import Address
-import ContactBtn from "./ContactBtn"; //import ContactBtn
-import TextDownPart from "./TextDownPart"; //import TextDownPart
-import Linkedin from "./Linkedin"; //import Linkedin
-import Instagram from "./Instagram"; //import Instagram
-import Github from "./Github"; //import Github
-import Youtube from "./Youtube"; //import youtube
-import United from "./United"; //import united
+import Logo from "./footer/Logo"; //import Logo
+import Address from "./footer/Address"; //import Address
+import ContactBtn from "./footer/ContactBtn"; //import ContactBtn
+import TextDownPart from "./footer/TextDownPart"; //import TextDownPart
+import Linkedin from "./footer/Linkedin"; //import Linkedin
+import Instagram from "./footer/Instagram"; //import Instagram
+import Github from "./footer/Github"; //import Github
+import Youtube from "./footer/Youtube"; //import youtube
+import United from "./footer/United"; //import united
 
 const Footer = () => {
   return (

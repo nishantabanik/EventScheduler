@@ -8,6 +8,9 @@ const EventDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+        // Image placeholder for events
+        const randomImage = `https://picsum.photos/seed/${Math.floor(Math.random() * 1000)}/300/200`;
+
     useEffect(() => {
         // Check if the user is logged in
         const authToken = localStorage.getItem("authToken");
@@ -39,18 +42,38 @@ const EventDetails = () => {
     if (!event) return <p>No event found.</p>;
 
     return (
-        <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md">
-            <h1 className="text-2xl font-bold mb-4">{event.title}</h1>
-            <p className="text-gray-600 mb-2">
-                Date: {new Date(event.date).toLocaleDateString()}
-            </p>
-            <p className="mb-4">{event.description}</p>
-            <button
-                onClick={() => navigate(-1)}
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-                Back
-            </button>
+        <div className="max-w-2xl mx-auto flex-col gap-8 h-[800px] shadow-2xl my-16 rounded-lg overflow-hidden ">
+            <div>
+                <figure className="h-1/2 mb-2 overflow-hidden">
+                    <img src={randomImage} className="w-full h-full object-cover"/>
+                </figure>
+            </div>
+            <div className='p-6'>
+                <div className='mb-6'>
+                    <h1 className="text-4xl text-center font-black mb-4">{event.title}</h1>
+                </div>
+
+                <div className='flex gap-2 my-4'>
+                    <p className="font-light p-4 badge badge-warning badge-outline">
+                        🗓️ {new Date(event.date).toLocaleDateString()} 
+                    </p>
+                    <p className="font-light p-4 badge badge-warning badge-outline">
+                        📍 {event.location}
+                    </p>
+                </div>
+
+                <div className=''>
+                    <p className="mb-8">{event.description}</p>
+                    <div className='mt-auto flex justify-end'>
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="btn btn-outline btn-warning"
+                    >
+                        Back
+                    </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

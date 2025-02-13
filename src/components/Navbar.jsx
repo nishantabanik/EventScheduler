@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <header className="flex bg-[#000814] w-full h-[7rem]">
-      <a className="w-22 md:w-38 hover:scale-105 transition-all">
+      <a className="w-22 md:w-38 shadow-xl transform transition-transform duration-300 hover:scale-110">
         <img
           src={logo}
           alt="Logo"
@@ -42,7 +42,7 @@ const Navbar = () => {
               Welcome {username}
             </span>
             <button
-              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
+              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl shadow-xl transform transition-transform duration-300 hover:scale-110"
               onClick={handleSignOut}
             >
               Sign Out
@@ -51,14 +51,14 @@ const Navbar = () => {
         ) : (
           <>
             <button
-              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
+              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl shadow-xl transform transition-transform duration-300 hover:scale-110"
               onClick={() => navigate("/signup")}
             >
               Sign Up
             </button>
 
             <button
-              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl hover:text-3xl"
+              className="btn btn-outline btn-warning text-accent text-2xl px-12 rounded-xl shadow-xl transform transition-transform duration-300 hover:scale-110"
               onClick={() => navigate("/signin")}
             >
               Sign In

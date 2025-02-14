@@ -16,7 +16,7 @@ const ThemeToggle = () => {
 
     return (
         <select
-            className="select select-bordered select-sm w-full max-w-xs"
+            className="select select-bordered select-sm w-half max-w-xs"
             value={theme}
             onChange={handleThemeChange}
         >
